@@ -5,10 +5,13 @@ importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.0.0-alpha.3
 
 if (workbox) {
     console.log('Hello from sw.js');
-   workbox.routing.registerRoute(
-      new RegExp('./static/*\.js'),
-      workbox.strategies.networkFirst()
-   );
+    workbox.precaching.preacheAndRoute([
+        './static/jquery.min.js',
+        {
+            url: '/index.html',
+            revision: '383676'
+        },
+    ]);
 }
 else {
     console.log("Workbox didn't loaded ");
