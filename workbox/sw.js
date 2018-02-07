@@ -6,7 +6,7 @@ importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.0.0-alpha.3
 if (workbox) {
     console.log('Hello from sw.js');
    workbox.routing.registerRoute(
-      new RegExp('.*\.js'),
+      new RegExp('./static/*\.js'),
       workbox.strategies.networkFirst()
    );
 }
