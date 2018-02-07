@@ -4,19 +4,14 @@
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.0.0-alpha.3/workbox-sw.js');
 
 if (workbox) {
-    console.log(`Yay! workbox is loaded 🎉`);
-    workbox.precaching.preacheAndRoute([
-        './index.html',
-        './static/jquery.min.js',
-        './static/mm1.jpg'
-        {
-            url: '/index.html',
-            revision: '383676'
-        },
-    ]);
+    console.log('Hello from sw.js');
+   workbox.routing.registerRoute(
+      new RegExp('.*\.js'),
+      workbox.strategies.networkFirst()
+   );
 }
 else {
-    console.log(`Boo! workbox didn't load 😬`);
+    console.log("Workbox didn't loaded ");
 }
 
 
