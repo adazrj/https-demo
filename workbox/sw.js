@@ -6,8 +6,8 @@ importScripts('./build/workbox-sw.js');
 const workboxSW = new WorkboxSW();
 workboxSW.precache([
   {
-    url: './static/mm1.jpg',
-    revision: 'acd123',
+    url: './static/logo.jpg',
+    revision: 'acd124',
   }
 ]);
 
