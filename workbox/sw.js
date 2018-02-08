@@ -1,3 +1,5 @@
+importScripts('./build/workbox-sw.prod.v2.1.2.js');
+const workboxSW = new self.WorkboxSW();
 workboxSW.precache([
   {
     "url": "build/sw.js",
