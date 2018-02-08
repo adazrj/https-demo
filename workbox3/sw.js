@@ -5,7 +5,20 @@ importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.0.0-beta.0/
 
 if (workbox) {
   console.log('Yay! Workbox is loaded');
-  
+  workbox.routing.registerRoute(
+	  new RegExp('.*\.html'),
+	  workbox.strategies.staleWhileRevalidate({
+	    // Use a custom cache name
+	    cacheName: 'html-cache',
+	  })
+	);
+  workbox.routing.registerRoute(
+	  new RegExp('.*\.js'),
+	  workbox.strategies.staleWhileRevalidate({
+	    // Use a custom cache name
+	    cacheName: 'js-cache',
+	  })
+	);
   workbox.routing.registerRoute(
 	  // Cache CSS files
 	  /.*\.css/,
