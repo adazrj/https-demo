@@ -10,6 +10,10 @@ if (workbox) {
 	  workbox.strategies.networkFirst()
 	);
   workbox.routing.registerRoute(
+	  new RegExp('.*\.js'),
+	  workbox.strategies.networkFirst()
+	);
+  workbox.routing.registerRoute(
 	  // Cache CSS files
 	  /.*\.css/,
 	  // Use cache but update in the background ASAP
