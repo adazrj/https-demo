@@ -29,7 +29,7 @@
 		$('#isSupport').text('支持');
 
 		// 开始注册service workers
-		navigator.serviceWorker.register('./build/sw.js', {
+		navigator.serviceWorker.register('./sw.js', {
 			scope: './'
 		}).then(function (registration) {
 			$('#isSuccess').text('注册成功');

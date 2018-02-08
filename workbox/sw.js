@@ -1,25 +1,32 @@
-// workbox 2.x 是将 workbox 核心内容放在 workbox-sw node_modules 包里维护的
-// workbox 3.x 开始是将 workbox 核心 lib 放在 CDN 维护
-// 当然也可以挪到自己的 CDN 维护
-importScripts('./build/workbox-sw.js');
+importScripts('bulid/workbox-sw.prod.v2.1.2.js');
 
-const workboxSW = new WorkboxSW();
-workboxSW.precache([
+/**
+ * DO NOT EDIT THE FILE MANIFEST ENTRY
+ *
+ * The method precache() does the following:
+ * 1. Cache URLs in the manifest to a local cache.
+ * 2. When a network request is made for any of these URLs the response
+ *    will ALWAYS comes from the cache, NEVER the network.
+ * 3. When the service worker changes ONLY assets with a revision change are
+ *    updated, old cache entries are left as is.
+ *
+ * By changing the file manifest manually, your users may end up not receiving
+ * new versions of files because the revision hasn't changed.
+ *
+ * Please use workbox-build or some other tool / approach to generate the file
+ * manifest which accounts for changes to local files and update the revision
+ * accordingly.
+ */
+const fileManifest = [
   {
-    url: './static/logo.jpg',
-    revision: 'acd124',
+    "url": "jquery.min.js",
+    "revision": "0652da382b6fceb033dfe2b6c06d4d11"
+  },
+  {
+    "url": "logo.jpg",
+    "revision": "71d9d86dc186fe1898f214428c61944e"
   }
-]);
+];
 
-
-
-
-
-
-
-
-
-
-
-
-
+const workboxSW = new self.WorkboxSW();
+workboxSW.precache(fileManifest);
