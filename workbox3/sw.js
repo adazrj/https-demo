@@ -7,11 +7,17 @@ if (workbox) {
   console.log('Yay! Workbox is loaded');
   workbox.routing.registerRoute(
 	  new RegExp('.*\.html'),
-	  workbox.strategies.networkFirst()
+	  workbox.strategies.staleWhileRevalidate({
+	    // Use a custom cache name
+	    cacheName: 'html-cache',
+	  })
 	);
   workbox.routing.registerRoute(
 	  new RegExp('.*\.js'),
-	  workbox.strategies.networkFirst()
+	  workbox.strategies.staleWhileRevalidate({
+	    // Use a custom cache name
+	    cacheName: 'js-cache',
+	  })
 	);
   workbox.routing.registerRoute(
 	  // Cache CSS files
