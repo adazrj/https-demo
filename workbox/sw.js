@@ -1,4 +1,4 @@
-importScripts('./build/workbox-sw.prod.v2.1.2.js');
+importScripts('./build/workbox-sw.js');
 
 /**
  * DO NOT EDIT THE FILE MANIFEST ENTRY
