@@ -7,7 +7,7 @@ self.addEventListener('install', function(event) {
       return cache.addAll([
         './index.html',
         './static/jquery.min.js',
-        './static/mm1.jpg'
+        './static/logo.jpg'
       ]);
     })
   );
@@ -39,6 +39,6 @@ self.addEventListener('fetch', function(event) {
     });
     return response.clone();
   }).catch(function() {
-    return caches.match('./static/mm1.jpg');
+    return caches.match('./static/logo.jpg');
   }));
 });
